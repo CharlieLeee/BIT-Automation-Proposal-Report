@@ -12,7 +12,7 @@
 
 [BIThesis Wiki: 毕业设计论文](https://bithesis.bitnp.net/Guide/3-Templates/Final-Graduation-Thesis.html)
 
-### 项目机构
+### 项目结构
 
 ```
 ├── main.tex: 开题报告的开始文件（主文件）
