@@ -4,7 +4,7 @@
 
 ### 关于本模板
 
-源项目为[BITHESIS](https://github.com/BITNP/BIThesis)中的[proposal-report](https://github.com/BITNP/BIThesis/tree/master/proposal-report)，模板根据自动化学院2017级的要求有所更改 
+源项目为[BITHESIS](https://github.com/BITNP/BIThesis)中的[proposal-report](https://github.com/BITNP/BIThesis-scaffold/tree/main/proposal-report)，模板根据自动化学院2017级的要求有所更改 
 
 ### 教程
 
@@ -27,7 +27,7 @@
 ### 编译方式
 ```
 -> xelatex
--> bibtex
+-> biber
 -> xelatex
 -> xelatex
 ```

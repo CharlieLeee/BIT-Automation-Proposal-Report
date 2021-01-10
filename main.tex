@@ -21,7 +21,7 @@
 % This work consists of the files main.tex, misc/cover.tex and
 % the external PDF misc/reviewTable.pdf
 %
-% Compile with: xelatex -> bibTeX -> xelatex -> xelatex
+% Compile with: xelatex -> biber-> xelatex -> xelatex
 
 \documentclass[UTF8,AutoFakeBold,AutoFakeSlant,zihao=-4]{ctexart}
 \usepackage[a4paper,left=3cm,right=2.4cm,top=2.6cm,bottom=2.38cm,includeheadfoot]{geometry}
@@ -36,12 +36,12 @@
 \usepackage{caption}
 \usepackage[normalem]{ulem}
 
-% 参考文献引用文件 refs.bib
-\bibliographystyle{abbrv} 
-% 去掉Reference小标题，采用section形式 
-\usepackage{etoolbox}
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
-\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %自定义新命令\upcite, 使参考文献引用以上标出现
+% 设置参考文献编译后端为 biber，引用格式为 GB/T7714-2015 格式
+% 参考文献使用宏包见 https://github.com/hushidong/biblatex-gb7714-2015
+\usepackage[style=gb7714-2015,backend=biber]{biblatex}
+
+% 参考文献引用文件 ref.bib
+\addbibresource{ref.bib}
 
 % 下方填入开题报告的基本信息
 \newcommand{\thesistitle}{双轴旋转惯性导航系统自标定技术研究}
@@ -109,7 +109,7 @@
 \input{misc/cover.tex}
 
 % 评审表
-\includepdf[pages=-,scale=1.2]{misc/reviewTableBlank.pdf}
+\includepdf[pages=-,scale=1.1]{misc/reviewTableBlank.pdf}
 
 %%
 % 正文开始
@@ -133,7 +133,7 @@
 
 % 内容开始
 \section{毕业设计（论文）任务书}
-开题报告总长度约 5 至 6 页，本部分重点介绍毕业设计选题的主要内容 \upcite{LeCun2010}，宋体，小三，段落前后 0.5 行。
+开题报告总长度约 5 至 6 页，本部分重点介绍毕业设计选题的主要内容 \cite{LeCun2010}，宋体，小三，段落前后 0.5 行。
 
 \subsection{题目内容}
 \subsection{任务要求}
@@ -189,7 +189,7 @@
 注意：下文的参考文献应包含近 5 年内文献，经典文献除外。
 
 \section{参考文献}
-% 将原来的biber编译方式改为bibTeX
-\bibliography{ref}
+% 删除默认的「参考文献 / Reference」标题，使用上面定义的 section 标题
+\printbibliography[heading=none]
 
 \end{document}
