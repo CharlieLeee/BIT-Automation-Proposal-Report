@@ -29,13 +29,17 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{pdfpages}
 \usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{caption}
 \usepackage[normalem]{ulem}
-
+\usepackage[many]{tcolorbox}
+\usepackage{float}
+\usepackage{hyperref}
 % 设置参考文献编译后端为 biber，引用格式为 GB/T7714-2015 格式
 % 参考文献使用宏包见 https://github.com/hushidong/biblatex-gb7714-2015
 \usepackage[style=gb7714-2015,backend=biber]{biblatex}
@@ -100,6 +104,11 @@
   fixskip = true,
   }
 }
+\usepackage{titlesec}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 %%
 % 文档开始
@@ -110,6 +119,14 @@
 
 % 评审表
 \includepdf[pages=-,scale=1.1]{misc/reviewTableBlank.pdf}
+
+% 自动化学院开题报告中那些巨丑的框
+\newtcolorbox{ubox}
+{
+	breakable,colback=white,arc=0mm,outer arc=0pt,width=1.04\linewidth,boxrule=1pt,height fill,
+	before upper={\parindent24bp},left=1.2pt,right=1.2pt,top=0mm,
+}
+
 
 %%
 % 正文开始
@@ -133,45 +150,86 @@
 
 % 内容开始
 \section{毕业设计（论文）任务书}
-开题报告总长度约 5 至 6 页，本部分重点介绍毕业设计选题的主要内容 \cite{LeCun2010}，宋体，小三，段落前后 0.5 行。
+\begin{ubox}
 
 \subsection{题目内容}
-\subsection{任务要求}
-\noindent 注意事项：
-\begin{enumerate}
-	\item 小标题字号：四，行间距：固定值22磅，
-	\item 内容字号：小四，行间距：固定值22磅，首行缩进2个字符  
-	\item 所有部分  中文：宋体；英文：TIMES NEW ROMAN字体
-\end{enumerate}
+开题报告总长度约 5 至 6 页，本部分重点介绍毕业设计选题的主要内容 \cite{LeCun2010}，宋体，小三，段落前后 0.5 行。
 
+\textbf{北京理工大学}（Beijing Institute of Technology）是中国共产党创办的第一所理工科大学，隶属于中华人民共和国工业和信息化部，副部级建制，是全国重点大学，首批进入世界一流大学建设高校A类行列，首批进入国家“211工程”、“985工程”，入选高等学校学科创新引智计划、高等学校创新能力提升计划、卓越工程师教育培养计划、国家建设高水平大学公派研究生项目、国家大学生创新性实验计划、国家级大学生创新创业训练计划、新工科研究与实践项目、中国政府奖学金来华留学生接收院校、首批高等学校科技成果转化和技术转移基地，是工业和信息化部高校联盟、中国人工智能教育联席会成员。
+
+北京理工大学前身是1940年成立于延安的自然科学院，历经晋察冀边区工业专门学校、华北大学工学院等办学时期，1949年定址北京并接收中法大学校本部和数理化三个系，1952年定名为北京工业学院，1988年更名为\emph{北京理工大学}。
+
+
+\subsection{任务要求}
+
+使用图片的方法如下，插入图片如下，\textbf{注意因为自动化学院要求开题报告必须有边框}（话说这个框真的没啥必要，而且一页能放下的内容少了还浪费纸）而这里的边框我使用的是\texttt{tcolorbox}环境，因此所有框内的float环境需要使用H选项。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{example-image}
+	\caption{一个图片例子}
+	\label{fig:main}
+\end{figure}
+
+引用图片的方法：如图~\ref{fig:main}~所示... \textbf{注意}：由于是H环境因此需要注意图片的大小和放置位置，否则可能会产生不太好的效果（比如tcolorbox提前终止等）。
+
+
+\end{ubox}
+
+
+\newpage
 \section{选题的背景和意义}
+\begin{ubox}
 \subsection{研究背景与意义}
 本部分重点关注毕业设计的主要任务，宋体，四号，段落前后 0.5 行。
 
 \subsection{国内外研究现状和发展趋势}
 此部分要分析任务书，并给出初步方案，要体现出复杂系统的概念，约写 2 至 3 页。
+\end{ubox}
 
 
 
-
-
+\newpage
 \section{研究方案}
-\subsection{}
-\subsection{}
+\begin{ubox}
+\subsection{数学公式与引用}
 
+我想展示一下我的数学公式，比如下面这两个
+\begin{equation}\label{eqn:demo}
+	F = ma
+\end{equation}
+\begin{equation}
+	N=m \frac{d^{2}}{d t^{2}}(x+l \sin \theta)
+\end{equation}
+引用的时候可以直接像这样，如公式~\ref{eqn:demo}~中所示...
+
+
+\subsection{}
+\end{ubox}
+
+\newpage
 \section{实施技术方案所需要的条件}
-\subsection{}
-\subsection{}
+\begin{ubox}
+\subsection{参考文献}
 
+参考文献使用\texttt{biber}进行编译，所有的\texttt{BibTeX}文件存于\texttt{ref.bib}内。
+\subsection{}
+\end{ubox}
+
+\newpage
 \section{预期成果}
+\begin{ubox}
+	内容...
+\end{ubox}
 
+\newpage
 \section{时间安排}
-大致的课题计划进度如下表 \ref{tab:progress} 所示。
+\begin{ubox}
+大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。大致的课题计划进度如下表 \ref{tab:progress} 所示。
 
 
 % 调整时间表的arraystretch
-\renewcommand*\arraystretch{2.4} 
-\begin{table}[!ht]
+\renewcommand*\arraystretch{1.5} 
+\begin{table}[H]
   \centering
   \caption{毕业设计计划进度表}
   \label{tab:progress}
@@ -187,9 +245,15 @@
 
 
 注意：下文的参考文献应包含近 5 年内文献，经典文献除外。
+\end{ubox}
 
+\newpage
 \section{参考文献}
+\begin{ubox}
 % 删除默认的「参考文献 / Reference」标题，使用上面定义的 section 标题
+参考文献已使用规定的\texttt{GB/T 7714-2015}标准（使用时请删掉这句话）
 \printbibliography[heading=none]
+\end{ubox}
+
 
 \end{document}
