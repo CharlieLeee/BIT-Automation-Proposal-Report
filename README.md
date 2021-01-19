@@ -4,7 +4,7 @@
 
 ### 关于本模板
 
-源项目为[BITHESIS](https://github.com/BITNP/BIThesis)中的[proposal-report](https://github.com/BITNP/BIThesis-scaffold/tree/main/proposal-report)，模板根据自动化学院2017级的要求有所更改 
+源项目为[BITHESIS](https://github.com/BITNP/BIThesis)中的[proposal-report](https://github.com/BITNP/BIThesis-scaffold/tree/main/proposal-report)，模板根据自动化学院2017级的要求有所更改。**推荐使用TexLive 2017及之后的版本，尽量不要使用MikTeX**
 
 ### 教程
 
