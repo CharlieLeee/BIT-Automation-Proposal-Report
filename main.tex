@@ -96,13 +96,21 @@
   name = {,、}
   }
 }
-% 二级标题：小四，宋体，加粗，段前段后各半行
+% 二级标题：四，宋体，加粗，段前段后各半行
 \ctexset{subsection={
   format = {\bfseries \songti \raggedright \zihao{4}},
   beforeskip =24bp plus 1ex minus .2ex,
   afterskip = 24bp plus .2ex,
   fixskip = true,
   }
+}
+% 三级标题：小四，宋体，加粗，段前段后各半行
+\ctexset{subsubsection={
+		format = {\bfseries \songti \raggedright \zihao{-4}},
+		beforeskip =24bp plus 1ex minus .2ex,
+		afterskip = 24bp plus .2ex,
+		fixskip = true,
+	}
 }
 \usepackage{titlesec}
 
@@ -123,7 +131,7 @@
 % 自动化学院开题报告中那些巨丑的框
 \newtcolorbox{ubox}
 {
-	breakable,colback=white,arc=0mm,outer arc=0pt,width=1.04\linewidth,boxrule=1pt,height fill,
+	breakable,colback=white,arc=0mm,outer arc=0pt,width=1\linewidth,boxrule=0.6pt,height fill,
 	before upper={\parindent24bp},left=1.2pt,right=1.2pt,top=0mm,
 }
 
@@ -203,7 +211,14 @@
 引用的时候可以直接像这样，如公式~\ref{eqn:demo}~中所示...
 
 
-\subsection{}
+\subsection{二级标题}
+
+二级标题四号
+
+\subsubsection{三级标题}
+
+三级标题小四
+
 \end{ubox}
 
 \newpage
