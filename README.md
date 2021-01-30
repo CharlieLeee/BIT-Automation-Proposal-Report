@@ -6,6 +6,8 @@
 
 源项目为[BITHESIS](https://github.com/BITNP/BIThesis)中的[proposal-report](https://github.com/BITNP/BIThesis-scaffold/tree/main/proposal-report)，模板根据自动化学院2017级的要求有所更改。**推荐使用TexLive 2017及之后的版本，尽量不要使用MikTeX**
 
+### Overleaf 直接使用
+[![open in overleaf](https://img.shields.io/badge/open%20in-Overleaf-46a247?logo=overleaf&logoColor=white&labelColor=2b2b2b)](https://www.overleaf.com/latex/templates/bei-jing-li-gong-da-xue-zi-dong-hua-xue-yuan-kai-ti-bao-gao-mo-ban/cxkjykzkgstb)
 ### 教程
 
 哔哩哔哩弹幕网：[BIThesis —— 教你优雅地撰写论文 | LaTeX 毕设模板系列教程](https://www.bilibili.com/video/BV1GT4y1V78d/)
