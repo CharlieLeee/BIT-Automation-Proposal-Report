@@ -29,7 +29,10 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+% 设置公式编号为(Section-Number)
 \usepackage{amsmath}
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection-\arabic{equation}}
 \usepackage{amsfonts}
 \usepackage{pdfpages}
 \usepackage{booktabs}
@@ -43,6 +46,21 @@
 % 设置参考文献编译后端为 biber，引用格式为 GB/T7714-2015 格式
 % 参考文献使用宏包见 https://github.com/hushidong/biblatex-gb7714-2015
 \usepackage[style=gb7714-2015,backend=biber]{biblatex}
+% 设置参考文献悬挂为学院要求
+\setlength{\bibhang}{0pt}
+\defbibenvironment{bibliography}
+{\list
+	{}
+	{\setlength{\leftmargin}{\bibhang}%
+		\setlength{\itemindent}{-\leftmargin}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\item
+	\printtext[labelnumberwidth]{%
+		\printfield{labelprefix}%
+		\printfield{labelnumber}}%
+	\addspace}
 
 % 参考文献引用文件 ref.bib
 \addbibresource{ref.bib}
@@ -59,13 +77,13 @@
 % 定义 caption 字体为楷体
 \DeclareCaptionFont{kaiticaption}{\kaishu \normalsize}
 
-% 设置图片的 caption 格式
+% 设置图片的 caption 格式 这里不能用加粗也不能用楷体
 \renewcommand{\thefigure}{\thesection-\arabic{figure}}
-\captionsetup[figure]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
+\captionsetup[figure]{labelsep=space,skip=10bp}
 
-% 设置表格的 caption 格式
+% 设置表格的 caption 格式 这里不能用加粗也不能用楷体
 \renewcommand{\thetable}{\thesection-\arabic{table}}
-\captionsetup[table]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
+\captionsetup[table]{labelsep=space,skip=10bp}
 
 % 定义一个概念
 \newtheorem{definition}{概念}[section]
@@ -116,7 +134,7 @@
 
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt} % 修改了三级标题前距
 
 %%
 % 文档开始
@@ -159,7 +177,11 @@
 % 内容开始
 \section{毕业设计（论文）任务书}
 \begin{ubox}
-
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \subsection{为什么用\LaTeX{}?}
 
 至于为什么用\LaTeX{}，其实很简单，因为用过都说香。具体香在哪呢，笔者就大致列举一下科研写作中最关心的一些问题$\text{\LaTeX}$是如何胜任的：
@@ -246,6 +268,11 @@
 \newpage
 \section{选题的背景和意义}
 \begin{ubox}
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \subsection{研究背景与意义}
 本部分重点关注毕业设计的主要任务，宋体，四号，段落前后 0.5 行。
 
@@ -258,6 +285,11 @@
 \newpage
 \section{研究方案}
 \begin{ubox}
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \subsection{数学公式与引用}
 
 我想展示一下我的数学公式，比如下面这两个
@@ -282,6 +314,11 @@
 
 \newpage
 \section{实施技术方案所需要的条件}
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \begin{ubox}
 \subsection{参考文献}
 
@@ -291,12 +328,22 @@
 
 \newpage
 \section{预期成果}
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \begin{ubox}
 	内容...
 \end{ubox}
 
 \newpage
 \section{时间安排}
+% 重置图表编号
+\setcounter{figure}{0}
+\setcounter{table}{0}
+% 设置正文行距
+\setlength{\baselineskip}{22pt}
 \begin{ubox}
 大致的课题计划进度如下表 \ref{tab:progress} 所示。
 
