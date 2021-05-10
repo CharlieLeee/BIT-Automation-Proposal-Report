@@ -56,16 +56,24 @@
 \newcommand{\mentorName}{李嗣}
 \newcommand{\offCampusMentorName}{王舞}
 
+% section内标号
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% 公式格式
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection-\arabic{equation}}
+
 % 定义 caption 字体为楷体
 \DeclareCaptionFont{kaiticaption}{\kaishu \normalsize}
 
 % 设置图片的 caption 格式
 \renewcommand{\thefigure}{\thesection-\arabic{figure}}
-\captionsetup[figure]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
+\captionsetup[figure]{labelsep=space,skip=10bp}
 
 % 设置表格的 caption 格式
 \renewcommand{\thetable}{\thesection-\arabic{table}}
-\captionsetup[table]{font=small,labelsep=space,skip=10bp,labelfont=bf,font=kaiticaption}
+\captionsetup[table]{labelsep=space,skip=10bp}
 
 % 定义一个概念
 \newtheorem{definition}{概念}[section]
